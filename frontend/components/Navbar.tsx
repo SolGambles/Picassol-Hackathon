@@ -38,7 +38,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={twitterLogo.src} alt="Twitter" className="h-8 w-8" />{" "}
+              <img src={twitterLogo.src} alt="Twitter" className="h-7 w-7" />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
@@ -48,7 +48,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={discordLogo.src} alt="Discord" className="h-8 w-8" />{" "}
+              <img src={discordLogo.src} alt="Discord" className="h-7 w-7" />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
@@ -58,7 +58,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={telegramLogo.src} alt="Telegram" className="h-8 w-8" />{" "}
+              <img src={telegramLogo.src} alt="Telegram" className="h-7 w-7" />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
