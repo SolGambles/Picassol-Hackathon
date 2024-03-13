@@ -5,7 +5,7 @@ seeds = false
 skip-lint = false
 
 [programs.localnet]
-draw_with_frens = "p1Z5CJa9U1e3XU9Uq9zhCQArD19MidRfBdMHPowtoim"
+picassol = "p1Z5CJa9U1e3XU9Uq9zhCQArD19MidRfBdMHPowtoim"
 
 [registry]
 url = "https://api.apr.dev"

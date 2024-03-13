@@ -3,7 +3,7 @@ use anchor_lang::prelude::*;
 declare_id!("p1Z5CJa9U1e3XU9Uq9zhCQArD19MidRfBdMHPowtoim");
 
 #[program]
-pub mod draw_with_frens {
+pub mod picassol {
     use super::*;
 
     const MIN_POS: u8 = 0;

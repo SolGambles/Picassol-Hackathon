@@ -1,6 +1,6 @@
 export type Picassol = {
   "version": "0.1.0",
-  "name": "draw_with_frens",
+  "name": "picassol",
   "instructions": [
     {
       "name": "createPixel",
@@ -166,7 +166,7 @@ export type Picassol = {
 
 export const IDL: Picassol = {
   "version": "0.1.0",
-  "name": "draw_with_frens",
+  "name": "picassol",
   "instructions": [
     {
       "name": "createPixel",
