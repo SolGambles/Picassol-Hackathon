@@ -46,10 +46,16 @@ export default function Home() {
   }, [anchorProvider]);
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100vw",
+        maxWidth: "100%",
+        overflowX: "hidden",
+        backgroundColor: "rgb(32,44,52)",
+      }}
+    >
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen">
-        <Title>Picassol Canvas Season 0</Title>
         <ColorSelector
           selectedColor={selectedColor}
           setSelectedColor={setSelectedColor}

@@ -93,7 +93,7 @@ export default function Canvas({ program, selectedColor }: Props) {
   }, [program]);
 
   return (
-    <div className={clsx(disabled && "opacity-25 cursor-not-allowed")}>
+    <div className={clsx(disabled && "opacity-25 cursor-not-allowed")} style={{ paddingLeft: '5vw', paddingRight: '5vw' }}>
       <table className="border border-gray-300 table-fixed">
         <tbody className="">
           {[...Array(100)].map((_, y) => {

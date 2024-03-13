@@ -15,13 +15,15 @@ export default function ColorSelector({ selectedColor, setSelectedColor }: Props
         return (
           <div
             className={clsx(
-              "w-16 h-16 border border-black rounded-full",
+              "w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out",
               !isSelected && "hover:scale-105",
               isSelected && "border-2 scale-125"
             )}
             style={{
               backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
-              marginRight: '16px' // Add some margin between circles
+              marginRight: '1em', // Add some margin between circles
+              marginTop: '8px', 
+              marginBottom: '4px',
             }}
             onClick={() => setSelectedColor(color)}
             key={i}
