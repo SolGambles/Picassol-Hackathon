@@ -1,6 +1,9 @@
-import React from 'react';
-import Link from 'next/link';
-import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
+import React from "react";
+import Link from "next/link";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import twitterLogo from "../public/twitter.png";
+import discordLogo from "../public/discord.png";
+import telegramLogo from "../public/telegram.png";
 
 const Navbar = () => {
   return (
@@ -30,16 +33,37 @@ const Navbar = () => {
         </div>
         <ul className="flex items-center space-x-4">
           <li>
-            <a href="https://twitter.com/PicassolCanvas" className="text-white hover:text-gray-300" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a
+              href="https://twitter.com/PicassolCanvas"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={twitterLogo.src} alt="Twitter" className="h-8 w-8" />{" "}
+              {/* adjust size as needed */}
+            </a>
           </li>
           <li>
-            <a href="https://discord.gg/M7XQuDB59y" className="text-white hover:text-gray-300" target="_blank" rel="noopener noreferrer">Discord</a>
+            <a
+              href="https://discord.gg/M7XQuDB59y"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={discordLogo.src} alt="Discord" className="h-8 w-8" />{" "}
+              {/* adjust size as needed */}
+            </a>
           </li>
           <li>
-            <a href="https://t.me/picassol" className="text-white hover:text-gray-300" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a
+              href="https://t.me/picassol"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={telegramLogo.src} alt="Telegram" className="h-8 w-8" />{" "}
+              {/* adjust size as needed */}
+            </a>
           </li>
           <li>
-            <WalletMultiButton className="bg-black hover:bg-black text-white" />
+            <WalletMultiButton />{" "}
           </li>
         </ul>
       </div>
