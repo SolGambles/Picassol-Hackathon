@@ -42,9 +42,6 @@ export default function Home() {
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen">
         <Title>Picassol Canvas Season 0</Title>
-        <div className="mb-8">
-          <WalletMultiButton className="bg-black hover:bg-black" />
-        </div>
         <ColorSelector selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
         <Canvas program={anchorProgram} selectedColor={selectedColor} />
       </div>
