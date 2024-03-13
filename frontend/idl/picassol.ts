@@ -1,4 +1,4 @@
-export type DrawWithFrens = {
+export type Picassol = {
   "version": "0.1.0",
   "name": "draw_with_frens",
   "instructions": [
@@ -164,7 +164,7 @@ export type DrawWithFrens = {
   ]
 };
 
-export const IDL: DrawWithFrens = {
+export const IDL: Picassol = {
   "version": "0.1.0",
   "name": "draw_with_frens",
   "instructions": [

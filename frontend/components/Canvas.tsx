@@ -1,24 +1,24 @@
 import { IdlAccounts, Program } from "@coral-xyz/anchor";
 import { PublicKey } from "@solana/web3.js";
-import clsx from "clsx"
+import clsx from "clsx";
 import { useEffect, useState, useMemo } from "react";
-import { DrawWithFrens } from "../idl/draw_with_frens";
+import { Picassol } from "../idl/picassol";
 import { Color } from "../lib/colors";
-import Pixel from "./Pixel"
+import Pixel from "./Pixel";
 
 interface Props {
-  program?: Program<DrawWithFrens>,
-  selectedColor: Color,
+  program?: Program<Picassol>;
+  selectedColor: Color;
 }
 
-type PixelAccount = IdlAccounts<DrawWithFrens>['pixel']
+type PixelAccount = IdlAccounts<Picassol>["pixel"];
 
 interface PixelChangedEvent {
-  posX: number,
-  posY: number,
-  colR: number,
-  colG: number,
-  colB: number,
+  posX: number;
+  posY: number;
+  colR: number;
+  colG: number;
+  colB: number;
 }
 
 export default function Canvas({ program, selectedColor }: Props) {
@@ -27,63 +27,70 @@ export default function Canvas({ program, selectedColor }: Props) {
 
   const fetchPixels = async () => {
     if (program) {
-      const pixels = await program.account.pixel.all()
-      console.log("got the pixels!", pixels)
-      setFetchedPixels(pixels.map(p => p.account))
+      const pixels = await program.account.pixel.all();
+      console.log("got the pixels!", pixels);
+      setFetchedPixels(pixels.map((p) => p.account));
     }
-  }
+  };
 
   useEffect(() => {
-    fetchPixels()
-  }, [program])
+    fetchPixels();
+  }, [program]);
 
   const pixelsMap = useMemo(() => {
     const map: { [id: number]: PixelAccount } = {};
-    fetchedPixels.forEach(p => {
+    fetchedPixels.forEach((p) => {
       const id = p.posY * 100 + p.posX;
       map[id] = p;
-    })
-    return map
-  }, [fetchedPixels])
+    });
+    return map;
+  }, [fetchedPixels]);
 
   const getPixelAddress = (posX: number, posY: number) => {
     const [pixelPublicKey] = PublicKey.findProgramAddressSync(
       [Buffer.from("pixel"), Buffer.from([posX, posY])],
-      program.programId,
-    )
-    return pixelPublicKey
-  }
+      program.programId
+    );
+    return pixelPublicKey;
+  };
 
   // Listen to PixelChanged events
   useEffect(() => {
     if (!program) return;
 
-    const listener = program.addEventListener('PixelChanged', async (event, _slot, _sig) => {
-      const e = event as PixelChangedEvent;
+    const listener = program.addEventListener(
+      "PixelChanged",
+      async (event, _slot, _sig) => {
+        const e = event as PixelChangedEvent;
 
-      // Get the latest data from Anchor for this pixel
-      const pixelAddress = await getPixelAddress(e.posX, e.posY);
-      const updatedPixelAccount = await program.account.pixel.fetch(pixelAddress);
+        // Get the latest data from Anchor for this pixel
+        const pixelAddress = await getPixelAddress(e.posX, e.posY);
+        const updatedPixelAccount = await program.account.pixel.fetch(
+          pixelAddress
+        );
 
-      // Update the state
-      setFetchedPixels(pixels => {
-        const newPixels = [...pixels];
-        const index = newPixels.findIndex(p => p.posX === e.posX && p.posY === e.posY);
-        if (index >= 0) {
-          // We already have pixel data at this position, so replace it
-          newPixels[index] = updatedPixelAccount;
-        } else {
-          // We don't have pixel data at this position, so add it
-          newPixels.push(updatedPixelAccount);
-        }
-        return newPixels;
-      })
-    })
+        // Update the state
+        setFetchedPixels((pixels) => {
+          const newPixels = [...pixels];
+          const index = newPixels.findIndex(
+            (p) => p.posX === e.posX && p.posY === e.posY
+          );
+          if (index >= 0) {
+            // We already have pixel data at this position, so replace it
+            newPixels[index] = updatedPixelAccount;
+          } else {
+            // We don't have pixel data at this position, so add it
+            newPixels.push(updatedPixelAccount);
+          }
+          return newPixels;
+        });
+      }
+    );
 
     return () => {
       program.removeEventListener(listener);
-    }
-  }, [program])
+    };
+  }, [program]);
 
   return (
     <div className={clsx(disabled && "opacity-25 cursor-not-allowed")}>
@@ -96,20 +103,22 @@ export default function Canvas({ program, selectedColor }: Props) {
                   const id = y * 100 + x;
                   const pixelData = pixelsMap[id];
 
-                  return <Pixel
-                    posX={x}
-                    posY={y}
-                    program={program}
-                    pixelData={pixelData}
-                    selectedColor={selectedColor}
-                    key={x}
-                  />
+                  return (
+                    <Pixel
+                      posX={x}
+                      posY={y}
+                      program={program}
+                      pixelData={pixelData}
+                      selectedColor={selectedColor}
+                      key={x}
+                    />
+                  );
                 })}
               </tr>
-            )
+            );
           })}
         </tbody>
       </table>
     </div>
-  )
+  );
 }

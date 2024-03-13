@@ -4,9 +4,13 @@ import ColorSelector from "../components/ColorSelector";
 import Title from "../components/Title";
 import { Color, colors } from "../lib/colors";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { AnchorWallet, useAnchorWallet, useConnection } from "@solana/wallet-adapter-react";
+import {
+  AnchorWallet,
+  useAnchorWallet,
+  useConnection,
+} from "@solana/wallet-adapter-react";
 import { AnchorProvider, Program } from "@coral-xyz/anchor";
-import { DrawWithFrens, IDL } from "../idl/draw_with_frens";
+import { Picassol, IDL } from "../idl/picassol";
 import { PublicKey } from "@solana/web3.js";
 import Canvas from "../components/Canvas";
 import Footer from "../components/Footer";
@@ -20,16 +24,20 @@ export default function Home() {
 
   const anchorProvider: AnchorProvider | undefined = useMemo(() => {
     if (anchorWallet) {
-      return new AnchorProvider(connection, anchorWallet, { commitment: 'confirmed' });
+      return new AnchorProvider(connection, anchorWallet, {
+        commitment: "confirmed",
+      });
     } else {
       return undefined;
     }
   }, [connection, anchorWallet]);
 
   // Make sure you use your program ID!
-  const programId = new PublicKey("p1Z5CJa9U1e3XU9Uq9zhCQArD19MidRfBdMHPowtoim");
+  const programId = new PublicKey(
+    "p1Z5CJa9U1e3XU9Uq9zhCQArD19MidRfBdMHPowtoim"
+  );
 
-  const anchorProgram: Program<DrawWithFrens> | undefined = useMemo(() => {
+  const anchorProgram: Program<Picassol> | undefined = useMemo(() => {
     if (anchorProvider) {
       return new Program(IDL, programId, anchorProvider);
     } else {
@@ -42,7 +50,10 @@ export default function Home() {
       <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen">
         <Title>Picassol Canvas Season 0</Title>
-        <ColorSelector selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
+        <ColorSelector
+          selectedColor={selectedColor}
+          setSelectedColor={setSelectedColor}
+        />
         <Canvas program={anchorProgram} selectedColor={selectedColor} />
       </div>
       <Footer />

@@ -1,7 +1,7 @@
 import * as anchor from "@coral-xyz/anchor";
 import { AnchorError, Program } from "@coral-xyz/anchor";
 import { web3 } from "@coral-xyz/anchor";
-import { DrawWithFrens } from "../target/types/draw_with_frens";
+import { Picassol } from "../target/types/draw_with_frens";
 import { assert } from "chai"
 
 describe("draw-with-frens", () => {
@@ -9,7 +9,7 @@ describe("draw-with-frens", () => {
   const anchorProvider = anchor.AnchorProvider.env();
   anchor.setProvider(anchorProvider);
 
-  const program = anchor.workspace.DrawWithFrens as Program<DrawWithFrens>;
+  const program = anchor.workspace.Picassol as Program<Picassol>;
 
   it("Can create a pixel", async () => {
     const x = 10
