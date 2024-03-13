@@ -1,3 +1,4 @@
+import Navbar from "../components/Navbar"; // Import the Navbar component
 import ColorSelector from "../components/ColorSelector";
 import Title from "../components/Title";
 import { Color, colors } from "../lib/colors";
@@ -36,18 +37,18 @@ export default function Home() {
   }, [anchorProvider])
 
   return (
-    <div className="flex flex-col items-stretch gap-8 px-4 pt-24 mx-auto max-w-max">
-      <main className="flex flex-col gap-4">
-        <Title>Picassol</Title>
-
-        <div className="basis-1/4">
-          <WalletMultiButton className="!bg-gray-900 hover:scale-105" />
-        </div>
-
-        <ColorSelector selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
-
-        <Canvas program={anchorProgram} selectedColor={selectedColor} />
-      </main>
+    <div>
+      <Navbar /> {/* Add the Navbar component */}
+      <div className="flex flex-col items-stretch gap-8 px-4 pt-24 mx-auto max-w-max">
+        <main className="flex flex-col gap-4">
+          <Title>Picassol Canvas Season 0</Title>
+          <div className="basis-1/4">
+            <WalletMultiButton className="!bg-gray-900 hover:scale-105" />
+          </div>
+          <ColorSelector selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
+          <Canvas program={anchorProgram} selectedColor={selectedColor} />
+        </main>
+      </div>
     </div>
-  )
+  );
 }
