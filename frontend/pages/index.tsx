@@ -39,15 +39,13 @@ export default function Home() {
   return (
     <div>
       <Navbar /> {/* Add the Navbar component */}
-      <div className="flex flex-col items-stretch gap-8 px-4 pt-24 mx-auto max-w-max">
-        <main className="flex flex-col gap-4">
-          <Title>Picassol Canvas Season 0</Title>
-          <div className="basis-1/4">
-            <WalletMultiButton className="!bg-gray-900 hover:scale-105" />
-          </div>
-          <ColorSelector selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
-          <Canvas program={anchorProgram} selectedColor={selectedColor} />
-        </main>
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <Title>Picassol Canvas Season 0</Title>
+        <div className="mb-8">
+          <WalletMultiButton className="!bg-gray-900 hover:scale-105" />
+        </div>
+        <ColorSelector selectedColor={selectedColor} setSelectedColor={setSelectedColor} />
+        <Canvas program={anchorProgram} selectedColor={selectedColor} />
       </div>
     </div>
   );
