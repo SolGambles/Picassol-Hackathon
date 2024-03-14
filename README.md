@@ -23,6 +23,6 @@ To join the Picassol canvas, ensure you have a Solana wallet and a small amount 
 ### Contributing to the Canvas
 
 1. **Connect Your Wallet**: Navigate to our platform and link your Solana wallet.
-2. **Select a Pixel**: Choose the pixel you wish to modify on the canvas.
-3. **Choose a Color**: Select a color from the available palette.
+2. **Choose a Color**: Select a color from the available palette.
+3. **Select a Pixel**: Choose the pixel you wish to modify on the canvas.
 4. **Confirm the Transaction**: Approve the transaction in your wallet to update the pixel color.
