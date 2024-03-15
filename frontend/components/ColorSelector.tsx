@@ -48,8 +48,8 @@ export default function ColorSelector({ selectedColor, setSelectedColor }: Props
         );
       })}
       <div className="ml-4">
-        <p>Cooldown: {cooldown} seconds</p>
+        <p style={{ color: 'white', fontSize: '1.2rem' }}>Cooldown: {cooldown} seconds</p>
       </div>
-    </div>
-  );
+        </div>
+      );
 }
