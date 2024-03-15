@@ -110,7 +110,7 @@ export default function Canvas({ program, selectedColor }: Props) {
                       program={program}
                       pixelData={pixelData}
                       selectedColor={selectedColor}
-                      key={x}
+                      key={`${y}-${x}`} // Use a combination of y and x as a key
                     />
                   );
                 })}

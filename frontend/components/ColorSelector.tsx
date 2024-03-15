@@ -16,7 +16,7 @@ export default function ColorSelector({ selectedColor, setSelectedColor }: Props
       const now = Date.now();
 
       if (lastClickTime) {
-        const remainingTime = 30 - Math.floor((now - Number(lastClickTime)) / 1000);
+        const remainingTime = 33 - Math.floor((now - Number(lastClickTime)) / 1000); // Increased cooldown time
         setCooldown(Math.max(remainingTime, 0));
       }
     }, 1000);
@@ -50,6 +50,6 @@ export default function ColorSelector({ selectedColor, setSelectedColor }: Props
       <div className="ml-4">
         <p style={{ color: 'white', fontSize: '1.2rem' }}>Cooldown: {cooldown} seconds</p>
       </div>
-        </div>
-      );
+    </div>
+  );
 }
