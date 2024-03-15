@@ -32,6 +32,13 @@ export default function Pixel({
   };
 
   const createPixel = async () => {
+    const lastClickTime = localStorage.getItem('lastClickTime');
+    const now = Date.now();
+
+    if (lastClickTime && now - Number(lastClickTime) < 33000) {
+      return;
+    }
+
     await program.methods
       .createPixel(
         posX,
@@ -46,15 +53,28 @@ export default function Pixel({
         systemProgram: SystemProgram.programId,
       })
       .rpc();
+
+    // Set the lastClickTime after the transaction is successful
+    localStorage.setItem('lastClickTime', String(now));
   };
 
   const updatePixel = async () => {
+    const lastClickTime = localStorage.getItem('lastClickTime');
+    const now = Date.now();
+
+    if (lastClickTime && now - Number(lastClickTime) < 33000) {
+      return;
+    }
+
     await program.methods
       .updatePixel(selectedColor.r, selectedColor.g, selectedColor.b)
       .accounts({
         pixel: getPixelAddress(),
       })
       .rpc();
+
+    // Set the lastClickTime after the transaction is successful
+    localStorage.setItem('lastClickTime', String(now));
   };
 
   return (
