@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import clsx from "clsx";
 import { Color, colors } from "../lib/colors";
 
@@ -7,6 +8,22 @@ interface Props {
 }
 
 export default function ColorSelector({ selectedColor, setSelectedColor }: Props) {
+  const [cooldown, setCooldown] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const lastClickTime = localStorage.getItem('lastClickTime');
+      const now = Date.now();
+
+      if (lastClickTime) {
+        const remainingTime = 30 - Math.floor((now - Number(lastClickTime)) / 1000);
+        setCooldown(Math.max(remainingTime, 0));
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="flex items-center justify-center py-4 mx-auto lg:mx-auto">
       {colors.map((color, i) => {
@@ -30,6 +47,9 @@ export default function ColorSelector({ selectedColor, setSelectedColor }: Props
           />
         );
       })}
+      <div className="ml-4">
+        <p>Cooldown: {cooldown} seconds</p>
+      </div>
     </div>
   );
 }

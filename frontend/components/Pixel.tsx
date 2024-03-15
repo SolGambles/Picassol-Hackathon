@@ -32,6 +32,15 @@ export default function Pixel({
   };
 
   const createPixel = async () => {
+    const lastClickTime = localStorage.getItem('lastClickTime');
+    const now = Date.now();
+
+    if (lastClickTime && now - Number(lastClickTime) < 30000) {
+      return;
+    }
+
+    localStorage.setItem('lastClickTime', String(now));
+
     await program.methods
       .createPixel(
         posX,
@@ -49,6 +58,15 @@ export default function Pixel({
   };
 
   const updatePixel = async () => {
+    const lastClickTime = localStorage.getItem('lastClickTime');
+    const now = Date.now();
+
+    if (lastClickTime && now - Number(lastClickTime) < 30000) {
+      return;
+    }
+
+    localStorage.setItem('lastClickTime', String(now));
+
     await program.methods
       .updatePixel(selectedColor.r, selectedColor.g, selectedColor.b)
       .accounts({
