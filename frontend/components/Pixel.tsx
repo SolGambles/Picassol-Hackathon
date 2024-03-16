@@ -32,7 +32,7 @@ export default function Pixel({
   };
 
   const createPixel = async () => {
-    const lastClickTime = localStorage.getItem('lastClickTime');
+    const lastClickTime = localStorage.getItem("lastClickTime");
     const now = Date.now();
 
     if (lastClickTime && now - Number(lastClickTime) < 33000) {
@@ -55,11 +55,11 @@ export default function Pixel({
       .rpc();
 
     // Set the lastClickTime after the transaction is successful
-    localStorage.setItem('lastClickTime', String(now));
+    localStorage.setItem("lastClickTime", String(now));
   };
 
   const updatePixel = async () => {
-    const lastClickTime = localStorage.getItem('lastClickTime');
+    const lastClickTime = localStorage.getItem("lastClickTime");
     const now = Date.now();
 
     if (lastClickTime && now - Number(lastClickTime) < 33000) {
@@ -74,14 +74,37 @@ export default function Pixel({
       .rpc();
 
     // Set the lastClickTime after the transaction is successful
-    localStorage.setItem('lastClickTime', String(now));
+    localStorage.setItem("lastClickTime", String(now));
+  };
+
+  const handleMouseEnter = () => {
+    if (!pixelData) {
+      // Change the color of the pixel to the selected color on hover
+      const pixelElement = document.getElementById(`pixel-${posX}-${posY}`);
+      if (pixelElement) {
+        pixelElement.style.backgroundColor = `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`;
+      }
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!pixelData) {
+      // Reset the color of the pixel on mouse leave
+      const pixelElement = document.getElementById(`pixel-${posX}-${posY}`);
+      if (pixelElement) {
+        pixelElement.style.backgroundColor = "white";
+      }
+    }
   };
 
   return (
     <td
-      className="h-4 min-w-[1rem]"
+      id={`pixel-${posX}-${posY}`}
+      className="h-3.5 min-w-[0.875rem]"
       style={{ backgroundColor: color }}
       onClick={pixelData ? updatePixel : createPixel}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     />
   );
 }

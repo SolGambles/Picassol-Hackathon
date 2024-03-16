@@ -3,8 +3,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className=" text-white py-4">
-      <div className="container mx-auto flex justify-between items-center" style={{ paddingLeft: '3vw', paddingRight: '3vw' }}>
+    <footer className="text-white py-4">
+      <div className="container mx-auto px-4 flex justify-between items-center">
         <p>&copy; 2024 Picassol.art, All rights reserved.</p>
         <div>
           <a
