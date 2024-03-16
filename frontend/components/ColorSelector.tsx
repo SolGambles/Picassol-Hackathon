@@ -25,29 +25,28 @@ export default function ColorSelector({ selectedColor, setSelectedColor }: Props
   }, []);
 
   return (
-    <div className="flex items-center justify-center py-4 mx-auto lg:mx-auto">
-      {colors.map((color, i) => {
-        const isSelected = color === selectedColor;
+    <div className="flex flex-col items-center justify-center py-4 mx-auto lg:mx-auto">
+      <div className="flex flex-wrap justify-center">
+        {colors.map((color, i) => {
+          const isSelected = color === selectedColor;
 
-        return (
-          <div
-            className={clsx(
-              "w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out",
-              !isSelected && "hover:scale-105",
-              isSelected && "border-2 scale-125"
-            )}
-            style={{
-              backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
-              marginRight: '1em', // Add some margin between circles
-              marginTop: '8px', 
-              marginBottom: '4px',
-            }}
-            onClick={() => setSelectedColor(color)}
-            key={i}
-          />
-        );
-      })}
-      <div className="ml-4">
+          return (
+            <div
+              className={clsx(
+                "w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
+                !isSelected && "hover:scale-105",
+                isSelected && "border-2 scale-125"
+              )}
+              style={{
+                backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
+              }}
+              onClick={() => setSelectedColor(color)}
+              key={i}
+            />
+          );
+        })}
+      </div>
+      <div className="mt-4">
         <p style={{ color: 'white', fontSize: '1.2rem' }}>Cooldown: {cooldown} seconds</p>
       </div>
     </div>
