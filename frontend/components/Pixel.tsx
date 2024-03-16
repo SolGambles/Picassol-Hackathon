@@ -56,17 +56,6 @@ export default function Pixel({
 
     // Set the lastClickTime after the transaction is successful
     localStorage.setItem('lastClickTime', String(now));
-
-    // Send a request to your Cloudflare Worker
-    await fetch('https://worker-frosty-union-0531.sterliing42.workers.dev/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        walletPublicKey: program.provider.publicKey.toString(),
-        method: 'createPixel',
-        timestamp: now,
-      }),
-    });
   };
 
   const updatePixel = async () => {
@@ -86,17 +75,6 @@ export default function Pixel({
 
     // Set the lastClickTime after the transaction is successful
     localStorage.setItem('lastClickTime', String(now));
-
-    // Send a request to your Cloudflare Worker
-    await fetch('https://worker-frosty-union-0531.sterliing42.workers.dev/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        walletPublicKey: program.provider.publicKey.toString(),
-        method: 'updatePixel',
-        timestamp: now,
-      }),
-    });
   };
 
   return (
