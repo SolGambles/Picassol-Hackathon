@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-8">
           <div>
-            <div className="text-white font-pixel text-xl">Picassol.art</div>
+            <div className="rainbow-text">Picassol.art</div>
           </div>
           <div className="flex items-center space-x-4">
             <div>
@@ -31,11 +31,6 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        <div className="text-white font-pixel text-xl">
-          <span>
-            Picassol Canvas Season 0
-          </span>
-        </div>
         <ul className="flex items-center space-x-4">
           <li>
             <a
@@ -43,7 +38,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={twitterLogo.src} alt="Twitter" className="h-7 w-7" />{" "}
+              <img src={twitterLogo.src} alt="Twitter" className="h-7 w-7 hover:scale-110" />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
@@ -53,7 +48,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={discordLogo.src} alt="Discord" className="h-7 w-7" />{" "}
+              <img src={discordLogo.src} alt="Discord" className="h-7 w-7 hover:scale-110" />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
@@ -63,7 +58,7 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={telegramLogo.src} alt="Telegram" className="h-7 w-7" />{" "}
+              <img src={telegramLogo.src} alt="Telegram" className="h-7 w-7 hover:scale-110" />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
