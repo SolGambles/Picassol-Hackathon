@@ -38,7 +38,11 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={twitterLogo.src} alt="Twitter" className="h-7 w-7 hover:scale-110" />{" "}
+              <img
+                src={twitterLogo.src}
+                alt="Twitter"
+                className="h-7 w-7 hover:scale-110"
+              />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
@@ -48,7 +52,11 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={discordLogo.src} alt="Discord" className="h-7 w-7 hover:scale-110" />{" "}
+              <img
+                src={discordLogo.src}
+                alt="Discord"
+                className="h-7 w-7 hover:scale-110"
+              />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
@@ -58,7 +66,11 @@ const Navbar = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={telegramLogo.src} alt="Telegram" className="h-7 w-7 hover:scale-110" />{" "}
+              <img
+                src={telegramLogo.src}
+                alt="Telegram"
+                className="h-7 w-7 hover:scale-110"
+              />{" "}
               {/* adjust size as needed */}
             </a>
           </li>
