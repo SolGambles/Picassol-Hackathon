@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-8">
           <div>
-            <div className="rainbow-text">Picassol.art</div>
+            <div className="rainbow-text">PICASSOL.ART</div>
           </div>
           <div className="flex items-center space-x-4">
             <div>

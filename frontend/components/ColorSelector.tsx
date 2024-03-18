@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { Color, colors } from "../lib/colors";
+import Pixel from "./Pixel";
 
 interface Props {
   selectedColor: Color;
