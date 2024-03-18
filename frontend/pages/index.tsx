@@ -46,8 +46,8 @@ export default function Home() {
       style={{
         width: "100vw",
         maxWidth: "100%",
-        overflowX: "auto" /* Hide horizontal scrollbar */,
-        overflowY: "auto" /* Add vertical scrollbar if necessary */,
+        overflowX: "auto", 
+        overflowY: "auto",
         backgroundColor: "rgb(32,44,52)",
       }}
     >
