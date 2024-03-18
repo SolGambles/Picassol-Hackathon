@@ -12,7 +12,7 @@ export default function ColorSelector({
   setSelectedColor,
 }: Props) {
   const [cooldown, setCooldown] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true); // Set isOpen to true initially
   const [slideAnimation, setSlideAnimation] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -36,33 +36,10 @@ export default function ColorSelector({
   };
 
   const handleColorClick = (color: Color) => {
-    if (color === selectedColor) {
-      setIsOpen(!isOpen);
-      setSlideAnimation(!slideAnimation);
-    } else {
-      setSelectedColor(color);
-      setIsOpen(true);
-      setSlideAnimation(true);
-    }
+    setSelectedColor(color);
+    setIsOpen(true);
+    setSlideAnimation(true);
   };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(event.target as Node)
-      ) {
-        setIsOpen(false);
-        setSlideAnimation(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div
