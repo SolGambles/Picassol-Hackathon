@@ -3,11 +3,12 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react'
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui'
-import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
+import { PhantomWalletAdapter, SolflareWalletAdapter, } from '@solana/wallet-adapter-wallets'
 import { clusterApiUrl } from '@solana/web3.js'
 import '../styles/rainbow-text.css'
 import Navbar from '../components/Navbar'; // replace with the actual path to Navbar
 import Footer from '../components/Footer'; // replace with the actual path to Footer
+import { BackpackWalletAdapter } from '@solana/wallet-adapter-backpack'
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
@@ -21,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   // of wallets that your users connect to will be loaded.
   const wallets = [
     new PhantomWalletAdapter(),
+    new BackpackWalletAdapter(),
     new SolflareWalletAdapter(),
   ];
 
