@@ -42,52 +42,63 @@ export default function ColorSelector({
   };
 
   return (
-    <div
-      className="flex flex-col items-center justify-center pr-4 pl-4 pb-4 pt-2 mx-auto lg:mx-auto"
-      ref={containerRef}
-    >
-      <button
-        className="w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1"
-        style={{
-          backgroundColor: `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`,
-        }}
-        onClick={handleButtonClick}
-      />
-      {isOpen && (
-        <div className="flex flex-wrap justify-center">
-          {colors.map((color, i) => {
-            const isSelected = color === selectedColor;
-
-            return (
-              <div
-                className={clsx(
-                  "w-8 h-8 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
-                  !isSelected && "hover:scale-105",
-                  isSelected && "border-2 scale-125",
-                  slideAnimation && "slide-open"
-                )}
-                style={{
-                  backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
-                }}
-                onClick={() => handleColorClick(color)}
-                key={i}
-              />
-            );
-          })}
-        </div>
-      )}
-      <div className="mt-4">
-        <p
+    <div style={
+      {
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center",
+        alignSelf: "center",
+      }
+    
+    }>
+      <div
+        className="flex flex-col items-center justify-center pr-4 pl-4 pb-4 pt-2 mx-auto lg:mx-auto"
+        ref={containerRef}
+      >
+        <button
+          className="w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1"
           style={{
-            color: "white",
-            fontSize: "1.2rem",
-            fontWeight: "bold",
-            textAlign: "center",
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+            backgroundColor: `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`,
           }}
-        >
-          Cooldown: <span style={{ color: "yellow" }}>{cooldown}</span> seconds
-        </p>
+          onClick={handleButtonClick}
+        />
+        {isOpen && (
+          <div className="flex flex-wrap justify-center">
+            {colors.map((color, i) => {
+              const isSelected = color === selectedColor;
+
+              return (
+                <div
+                  className={clsx(
+                    "w-8 h-8 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
+                    !isSelected && "hover:scale-105",
+                    isSelected && "border-2 scale-125",
+                    slideAnimation && "slide-open"
+                  )}
+                  style={{
+                    backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
+                  }}
+                  onClick={() => handleColorClick(color)}
+                  key={i}
+                />
+              );
+            })}
+          </div>
+        )}
+        <div className="mt-4">
+          <p
+            style={{
+              color: "white",
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+              textAlign: "center",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+            }}
+          >
+            Cooldown: <span style={{ color: "yellow" }}>{cooldown}</span>{" "}
+            seconds
+          </p>
+        </div>
       </div>
     </div>
   );
