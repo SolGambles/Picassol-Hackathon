@@ -3,9 +3,9 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="text-white py-4">
+    <footer className="p-4 bg-black">
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <p>&copy; 2024 Picassol.art, All rights reserved.</p>
+      <p className="text-white">&copy; 2024 Picassol.art, All rights reserved.</p>
         <div>
           <a
             href="/privacy-policy"

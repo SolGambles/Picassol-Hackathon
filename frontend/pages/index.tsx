@@ -1,9 +1,6 @@
 import React, { useMemo, useState } from "react";
-import Navbar from "../components/Navbar";
 import ColorSelector from "../components/ColorSelector";
-import Title from "../components/Title";
 import { Color, colors } from "../lib/colors";
-import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import {
   AnchorWallet,
   useAnchorWallet,
@@ -13,7 +10,6 @@ import { AnchorProvider, Program } from "@coral-xyz/anchor";
 import { Picassol, IDL } from "../idl/picassol";
 import { PublicKey } from "@solana/web3.js";
 import Canvas from "../components/Canvas";
-import Footer from "../components/Footer";
 
 export default function Home() {
   const [selectedColor, setSelectedColor] = useState<Color>(colors[0]);
@@ -50,12 +46,11 @@ export default function Home() {
       style={{
         width: "100vw",
         maxWidth: "100%",
-        overflowX: "hidden" /* Hide horizontal scrollbar */,
+        overflowX: "auto" /* Hide horizontal scrollbar */,
         overflowY: "auto" /* Add vertical scrollbar if necessary */,
         backgroundColor: "rgb(32,44,52)",
       }}
     >
-      <Navbar />
       <div className="flex flex-col items-center justify-center min-h-screen">
         <ColorSelector
           selectedColor={selectedColor}
@@ -63,7 +58,6 @@ export default function Home() {
         />
         <Canvas program={anchorProgram} selectedColor={selectedColor} />
       </div>
-      <Footer />
     </div>
   );
 }
