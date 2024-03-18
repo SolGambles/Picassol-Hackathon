@@ -45,12 +45,13 @@ export default function ColorSelector({
   return (
     <div style={
       {
-        display: "flex",
-        justifyContent: "center",
-        alignContent: "center",
-        alignSelf: "center",
+        backgroundColor: "rgba(32,44,52)",
+        backdropFilter: "blur(10px)",
+        borderRadius: "10px",
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+        zIndex: 1000,
+        marginTop: "1em",
       }
-    
     }>
       <div
         className="flex flex-col items-center justify-center pr-4 pl-4 pb-4 pt-2 mx-auto lg:mx-auto"
