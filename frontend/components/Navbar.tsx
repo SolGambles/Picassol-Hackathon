@@ -7,7 +7,7 @@ import telegramLogo from "../public/telegram.png";
 
 const Navbar = () => {
   return (
-    <nav className="p-4">
+    <nav className="p-4 bg-black">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-8">
           <div>
