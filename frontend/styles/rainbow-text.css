@@ -25,9 +25,14 @@
   }
 }
 
+@font-face {
+  font-family: "Pixelify Sans";
+  src: url(PixelifySans-VariableFont_wght.ttf);
+}
+
 .rainbow-text {
   animation: rainbow 8s infinite;
-  font-family: "Pixel", sans-serif;
+  font-family: "Pixelify Sans", sans-serif;
   color: white;
   font-size: 1.25rem;
 }
