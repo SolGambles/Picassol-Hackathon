@@ -96,11 +96,8 @@ export default function Canvas({ program, selectedColor }: Props) {
     <div
       className={clsx(disabled && "opacity-25 cursor-not-allowed")}
       style={{
-        width: "100vw",
-        overflowX: "hidden",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        margin: "auto",
+        padding: "1rem",
       }}
     >
       <table className="border border-gray-300 table-fixed">
