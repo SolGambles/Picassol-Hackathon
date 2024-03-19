@@ -49,7 +49,6 @@ export default function ColorSelector({
         backdropFilter: "blur(10px)",
         borderRadius: "10px",
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-        zIndex: 1000,
         marginTop: "1em",
       }
     }>
