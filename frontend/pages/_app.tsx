@@ -9,6 +9,7 @@ import '../styles/rainbow-text.css'
 import Navbar from '../components/Navbar'; // replace with the actual path to Navbar
 import Footer from '../components/Footer'; // replace with the actual path to Footer
 import { BackpackWalletAdapter } from '@solana/wallet-adapter-backpack'
+import { useRouter } from 'next/router'
 
 // Default styles that can be overridden by your app
 require('@solana/wallet-adapter-react-ui/styles.css');
@@ -26,9 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     new SolflareWalletAdapter(),
   ];
 
+  const router = useRouter();
+  const isExcludedRoute = ['/privacy-policy', '/terms-of-use'].includes(router.pathname);
+
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect>
+      <WalletProvider wallets={wallets} autoConnect={!isExcludedRoute}>
         <WalletModalProvider>
           <Head>
             <title>Picassol</title>

@@ -16,17 +16,23 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <div>
               <Link href="/">
-                <a className="text-white hover:text-gray-300">Canvas</a>
+                <a className="py-3 rounded-full border-2 bg-black px-6 text-xs hover:bg-white hover:text-black hover:border-2 hover:border-black font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg">
+                  Canvas
+                </a>
               </Link>
             </div>
             <div>
               <Link href="/mint">
-                <a className="text-white hover:text-gray-300">Mint</a>
+                <a className="py-3 rounded-full border-2 bg-black px-6 text-xs hover:bg-white hover:text-black hover:border-2 hover:border-black font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg">
+                  Mint
+                </a>
               </Link>
             </div>
             <div>
               <Link href="https://picassol.gitbook.io/picassol">
-                <a className="text-white hover:text-gray-300">Docs</a>
+                <a className="py-3 rounded-full border-2 bg-black px-6 text-xs hover:bg-white hover:text-black hover:border-2 hover:border-black font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg">
+                  Docs
+                </a>
               </Link>
             </div>
           </div>
