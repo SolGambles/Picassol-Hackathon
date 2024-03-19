@@ -57,36 +57,38 @@ export default function ColorSelector({
         className="flex flex-col items-center justify-center pr-4 pl-4 pb-4 pt-2 mx-auto lg:mx-auto"
         ref={containerRef}
       >
-        <button
-          className="w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1"
-          style={{
-            backgroundColor: `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`,
-          }}
-          onClick={handleButtonClick}
-        />
-        {isOpen && (
-          <div className="flex flex-wrap justify-center">
-            {colors.map((color, i) => {
-              const isSelected = color === selectedColor;
+        <div className="flex items-center">
+          <button
+            className="w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1"
+            style={{
+              backgroundColor: `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`,
+            }}
+            onClick={handleButtonClick}
+          />
+          {isOpen && (
+            <div className="flex flex-wrap justify-center ml-4">
+              {colors.map((color, i) => {
+                const isSelected = color === selectedColor;
 
-              return (
-                <div
-                  className={clsx(
-                    "w-8 h-8 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
-                    !isSelected && "hover:scale-105",
-                    isSelected && "border-2 scale-125",
-                    slideAnimation && "slide-open"
-                  )}
-                  style={{
-                    backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
-                  }}
-                  onClick={() => handleColorClick(color)}
-                  key={i}
-                />
-              );
-            })}
-          </div>
-        )}
+                return (
+                  <div
+                    className={clsx(
+                      "w-8 h-8 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
+                      !isSelected && "hover:scale-105",
+                      isSelected && "border-2 scale-125",
+                      slideAnimation && "slide-open"
+                    )}
+                    style={{
+                      backgroundColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
+                    }}
+                    onClick={() => handleColorClick(color)}
+                    key={i}
+                  />
+                );
+              })}
+            </div>
+          )}
+        </div>
         <div className="mt-4">
           <p
             style={{
