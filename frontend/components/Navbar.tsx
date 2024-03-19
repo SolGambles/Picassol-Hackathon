@@ -10,21 +10,21 @@ const Navbar = () => {
                 <div className="flex items-center space-x-4">
                     <div>
                         <Link href="/">
-                            <a className="py-3 rounded-full border-2 bg-black px-6 text-xs hover:bg-white hover:text-black hover:border-2 hover:border-black font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg">
+                            <a className="yourClassName">
                                 Canvas
                             </a>
                         </Link>
                     </div>
                     <div>
                         <Link href="/mint">
-                            <a className="py-3 rounded-full border-2 bg-black px-6 text-xs hover:bg-white hover:text-black hover:border-2 hover:border-black font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg">
+                            <a className="yourClassName">
                                 Mint
                             </a>
                         </Link>
                     </div>
                     <div>
                         <Link href="https://picassol.gitbook.io/picassol">
-                            <a className="py-3 rounded-full border-2 bg-black px-6 text-xs hover:bg-white hover:text-black hover:border-2 hover:border-black font-medium uppercase leading-tight text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none active:shadow-lg">
+                            <a className="yourClassName" target="blank">
                                 Docs
                             </a>
                         </Link>
