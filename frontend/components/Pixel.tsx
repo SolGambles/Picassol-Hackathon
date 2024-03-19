@@ -78,22 +78,18 @@ export default function Pixel({
   };
 
   const handleMouseEnter = () => {
-    if (!pixelData) {
-      // Change the color of the pixel to the selected color on hover
-      const pixelElement = document.getElementById(`pixel-${posX}-${posY}`);
-      if (pixelElement) {
-        pixelElement.style.backgroundColor = `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`;
-      }
+    // Change the color of the pixel to the selected color on hover
+    const pixelElement = document.getElementById(`pixel-${posX}-${posY}`);
+    if (pixelElement) {
+      pixelElement.style.backgroundColor = `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`;
     }
   };
 
   const handleMouseLeave = () => {
-    if (!pixelData) {
-      // Reset the color of the pixel on mouse leave
-      const pixelElement = document.getElementById(`pixel-${posX}-${posY}`);
-      if (pixelElement) {
-        pixelElement.style.backgroundColor = "white";
-      }
+    // Reset the color of the pixel to its original color on mouse leave
+    const pixelElement = document.getElementById(`pixel-${posX}-${posY}`);
+    if (pixelElement) {
+      pixelElement.style.backgroundColor = color;
     }
   };
 
