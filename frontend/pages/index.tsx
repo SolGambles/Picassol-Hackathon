@@ -42,22 +42,22 @@ export default function Home() {
   }, [anchorProvider]);
 
   return (
-    <div
-      style={{
-        width: "100vw",
-        maxWidth: "100%",
-        overflowX: "auto", 
-        overflowY: "auto",
-        background: "transparent",
-      }}
-    >
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        <ColorSelector
-          selectedColor={selectedColor}
-          setSelectedColor={setSelectedColor}
-        />
-        <Canvas program={anchorProgram} selectedColor={selectedColor} />
+      <div
+        style={{
+          width: "100vw",
+          maxWidth: "100%",
+          background: "transparent",
+        }}
+      >
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="sticky top-0 z-50 ">
+            <ColorSelector
+              selectedColor={selectedColor}
+              setSelectedColor={setSelectedColor}
+            />
+          </div>
+          <Canvas program={anchorProgram} selectedColor={selectedColor} />
+        </div>
       </div>
-    </div>
   );
 }

@@ -46,8 +46,7 @@ export default function ColorSelector({
   return (
     <div style={
       {
-        backgroundColor: "transparent",
-        border: "2px solid transparent", 
+        backgroundColor: "linear-gradient(to bottom, #000000, #434343, #000000)",
         borderRadius: "10px",
         marginTop: "1em",
       }
