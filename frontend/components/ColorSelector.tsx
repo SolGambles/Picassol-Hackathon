@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import clsx from "clsx";
 import { Color, colors } from "../lib/colors";
 import Pixel from "./Pixel";
-import { useWallet } from "@solana/wallet-adapter-react";
 
 interface Props {
   selectedColor: Color;
@@ -17,8 +16,7 @@ export default function ColorSelector({
   const [isOpen, setIsOpen] = useState(true); // Set isOpen to true initially
   const [slideAnimation, setSlideAnimation] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { publicKey } = useWallet();
-  const [points, setPoints] = useState(0);
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -34,14 +32,6 @@ export default function ColorSelector({
 
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    if (publicKey) {
-      fetch(`/api/getUserPoints?walletAddress=${publicKey.toString()}`)
-        .then(response => response.json())
-        .then(data => setPoints(data.points));
-    }
-  }, [publicKey]);
 
   const handleButtonClick = () => {
     setIsOpen(!isOpen);
@@ -110,17 +100,6 @@ export default function ColorSelector({
           >
             Cooldown: <span style={{ color: "yellow" }}>{cooldown}</span>{" "}
             seconds
-          </p>
-          <p
-            style={{
-              color: "white",
-              fontSize: "1.2rem",
-              fontWeight: "bold",
-              textAlign: "center",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
-            }}
-          >
-            Points: <span style={{ color: "white" }}>{points}</span>
           </p>
         </div>
       </div>
