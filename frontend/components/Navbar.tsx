@@ -30,6 +30,11 @@ return (
                             Docs
                         </a>
                     </Link>
+                    <Link href="https://faucet.solana.com/">
+                        <a className="yourClassName" target="blank">
+                            Get Devnet SOL
+                        </a>
+                    </Link>
                 </div>
             </div>
             <div className="flex-1 text-right">
