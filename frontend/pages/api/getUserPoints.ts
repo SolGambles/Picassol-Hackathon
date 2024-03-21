@@ -15,8 +15,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await client.connect();
 
     // Specify the database and collection
-    const db = client.db("Test");
-    const collection = db.collection("wallets");
+    const db = client.db(process.env.DB_NAME);
+    const collection = db.collection(process.env.COLLECTION_NAME);
 
     // Get the user's points
     const user = await collection.findOne({ walletAddress: walletAddress });
