@@ -31,18 +31,20 @@ function MyApp({ Component, pageProps }: AppProps) {
   const isExcludedRoute = ['/privacy-policy', '/terms-of-use'].includes(router.pathname);
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect={!isExcludedRoute}>
-        <WalletModalProvider>
-          <Head>
-            <title>Picassol</title>
-          </Head>
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
+    <div style={{ background: 'linear-gradient(to bottom, #000000, #434343, #000000)', minHeight: '100vh' }}>
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets} autoConnect={!isExcludedRoute}>
+          <WalletModalProvider>
+            <Head>
+              <title>Picassol</title>
+            </Head>
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
+    </div>
   )
 }
 

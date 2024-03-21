@@ -48,7 +48,7 @@ export default function Home() {
         maxWidth: "100%",
         overflowX: "auto", 
         overflowY: "auto",
-        backgroundColor: "rgb(32,44,52)",
+        background: "transparent",
       }}
     >
       <div className="flex flex-col items-center justify-center min-h-screen">

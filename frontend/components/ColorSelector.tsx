@@ -45,10 +45,9 @@ export default function ColorSelector({
   return (
     <div style={
       {
-        backgroundColor: "rgba(32,44,52)",
-        backdropFilter: "blur(10px)",
+        backgroundColor: "transparent",
+        border: "2px solid transparent", 
         borderRadius: "10px",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
         marginTop: "1em",
       }
     }>
@@ -58,7 +57,7 @@ export default function ColorSelector({
       >
         <div className="flex items-center">
           <button
-            className="w-10 h-10 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1"
+            className="w-10 h-10 rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1"
             style={{
               backgroundColor: `rgb(${selectedColor.r}, ${selectedColor.g}, ${selectedColor.b})`,
             }}
@@ -72,8 +71,8 @@ export default function ColorSelector({
                 return (
                   <div
                     className={clsx(
-                      "w-8 h-8 border border-black rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
-                      !isSelected && "hover:scale-105",
+                      "w-8 h-8 rounded-full cursor-pointer transition-transform duration-200 ease-in-out m-1",
+                      !isSelected && "hover:scale-110",
                       isSelected && "border-2 scale-125",
                       slideAnimation && "slide-open"
                     )}
