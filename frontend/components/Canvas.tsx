@@ -100,7 +100,7 @@ export default function Canvas({ program, selectedColor }: Props) {
         padding: "1rem",
       }}
     >
-      <table className="border border-gray-300 table-fixed">
+      <table className="table-fixed">
         <tbody className="">
           {[...Array(100)].map((_, y) => {
             return (
