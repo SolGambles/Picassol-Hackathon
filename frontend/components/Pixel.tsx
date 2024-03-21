@@ -56,6 +56,17 @@ export default function Pixel({
 
     // Set the lastClickTime after the transaction is successful
     localStorage.setItem("lastClickTime", String(now));
+
+    // Update user points
+    fetch('/api/updateUserPoints', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        walletAddress: program.provider.publicKey.toString(),
+      }),
+    });
   };
 
   const updatePixel = async () => {
@@ -75,6 +86,17 @@ export default function Pixel({
 
     // Set the lastClickTime after the transaction is successful
     localStorage.setItem("lastClickTime", String(now));
+
+    // Update user points
+    fetch('/api/updateUserPoints', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        walletAddress: program.provider.publicKey.toString(),
+      }),
+    });
   };
 
   const handleMouseEnter = () => {
